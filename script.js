@@ -27,10 +27,10 @@ try {
  */
 const CONFIG = {
     WEBHOOKS: {
-        ACOES: "https://discord.com/api/webhooks/1438189798849384560/lote5LpQxF80SDUZ3QdPOj2aHiQ7JtcJWKfTNxErKA0MjhDdQ86vruN74dnNUy0YMowD",
+        ACOES: "https://discord.com/api/webhooks/1492192766950637658/JukRqHmhJfLtnO-79qbU2q7alf0pSx2bldLMRyfZEF9R6Kfu4BrFwMr7pXKRIILedSlA",
         VENDAS: "https://discord.com/api/webhooks/1492194338057355334/HrQ9JV5le5NT_W8-qRV37bR9ZeeLkjRPWBtg3gs1iqMF3sAZdTJlOoVwtm0B59HeRuMi",
         LAVAGEM: "https://discord.com/api/webhooks/1492193244464025641/TtZKG1ThamllzY_O3fucPRL5PwMTIXtAH1kwdhwQNpTqOwYMJNsvgXs4Z3Aq3M06_XV3",
-        LOGS_ACOES: "https://discord.com/api/webhooks/1492192766950637658/JukRqHmhJfLtnO-79qbU2q7alf0pSx2bldLMRyfZEF9R6Kfu4BrFwMr7pXKRIILedSlA",
+        LOGS_ACOES: "https://discord.com/api/webhooks/1492200384369004628/TSDCdVLu5QbfsV5RJA033VYSIyor8i-dFKv-IQFkdJvaKW6P4UUpB8cLQtRKQ88EQAEG",
         LOGS_VENDAS: "https://discord.com/api/webhooks/1492193145939562710/sGl8iLc3WFaZxg0Gzj-aEzYadbTPOrej2xVGBxIwRiYCL_uVpWw40BocIdj8VoA9-INq"
     },
     TAXA_MAQUINA: 30,
