@@ -262,8 +262,8 @@
             </div>
             <div class="col form-group">
                 <label>Taxa de Lavagem (%)</label>
-                <input type="number" id="lavagem-taxa" placeholder="40" min="0" max="100" oninput="app.calcularLavagem()">
-                <small class="text-muted" style="font-size: 0.7rem; display: block; margin-top: 5px;">Taxa da máquina: <b style="color: var(--danger);">30%</b> (fixo)</small>
+                <input type="number" id="lavagem-taxa" placeholder="30" min="0" max="100" oninput="app.calcularLavagem()">
+                <small class="text-muted" style="font-size: 0.7rem; display: block; margin-top: 5px;">Taxa da máquina: <b style="color: var(--danger);">10%</b> (fixo)</small>
             </div>
         </div>
         <div class="row">
@@ -281,8 +281,12 @@
                     <span class="lavagem-value" id="lav-res-original">R$ 0</span>
                 </div>
                 <div class="lavagem-item">
-                    <span class="lavagem-label">⚙️ Taxa Máquina (30%)</span>
+                    <span class="lavagem-label">⚙️ Taxa Máquina (10%)</span>
                     <span class="lavagem-value rate-loss" id="lav-res-maquina">R$ 0</span>
+                </div>
+                <div class="lavagem-item">
+                    <span class="lavagem-label">🧪 Alvejante (1 a cada 10k)</span>
+                    <span class="lavagem-value" id="lav-res-alvejante">0</span>
                 </div>
                 <div class="lavagem-item">
                     <span class="lavagem-label">📊 Taxa Lavagem (%)</span>
