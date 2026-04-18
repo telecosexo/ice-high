@@ -27,27 +27,25 @@ try {
  */
 const CONFIG = {
     WEBHOOKS: {
-        ACOES: "https://discord.com/api/webhooks/1492192766950637658/JukRqHmhJfLtnO-79qbU2q7alf0pSx2bldLMRyfZEF9R6Kfu4BrFwMr7pXKRIILedSlA",
+        ACOES: "https://discord.com/api/webhooks/1438189798849384560/lote5LpQxF80SDUZ3QdPOj2aHiQ7JtcJWKfTNxErKA0MjhDdQ86vruN74dnNUy0YMowD",
         VENDAS: "https://discord.com/api/webhooks/1492194338057355334/HrQ9JV5le5NT_W8-qRV37bR9ZeeLkjRPWBtg3gs1iqMF3sAZdTJlOoVwtm0B59HeRuMi",
         LAVAGEM: "https://discord.com/api/webhooks/1492193244464025641/TtZKG1ThamllzY_O3fucPRL5PwMTIXtAH1kwdhwQNpTqOwYMJNsvgXs4Z3Aq3M06_XV3",
-        LOGS_ACOES: "https://discord.com/api/webhooks/1492200384369004628/TSDCdVLu5QbfsV5RJA033VYSIyor8i-dFKv-IQFkdJvaKW6P4UUpB8cLQtRKQ88EQAEG",
+        LOGS_ACOES: "https://discord.com/api/webhooks/1492192766950637658/JukRqHmhJfLtnO-79qbU2q7alf0pSx2bldLMRyfZEF9R6Kfu4BrFwMr7pXKRIILedSlA",
         LOGS_VENDAS: "https://discord.com/api/webhooks/1492193145939562710/sGl8iLc3WFaZxg0Gzj-aEzYadbTPOrej2xVGBxIwRiYCL_uVpWw40BocIdj8VoA9-INq"
     },
-    TAXA_MAQUINA: 30,
-    MAT_NAMES: ["Alumínio", "Cobre", "Materiais", "Projeto"],
-    MAT_WEIGHTS: [0.25, 0.25, 0.25, 0.25]
+    TAXA_MAQUINA: 10,
+    MAT_NAMES: ["Componente Eletrônico", "Borracha", "Alvejante"],
+    MAT_WEIGHTS: [0.1, 0, 0.05]
 };
 
 const CATALOG = {
-    'fn_five_seven': { name: "Fn Five Seven (PT)", category: "Pistolas",       price: { min: 55000, max: 65000 },   weight: 1.5,  cost: 10000, recipe: [10, 10, 10, 10] },
-    'hk_p7m10':      { name: "HK P7M10 (Fajuta)",  category: "Pistolas",       price: { min: 25000, max: 30000 },   weight: 1.0,  cost: 5000,  recipe: [10, 10, 10, 10] },
-    'tec_9':         { name: "Tec-9 (Sub)",        category: "Submetralhadoras", price: { min: 90000, max: 110000 },  weight: 1.75, cost: 30000, recipe: [20, 20, 20, 20] },
-    'uzi':           { name: "Uzi (Sub)",          category: "Submetralhadoras", price: { min: 120000, max: 140000 }, weight: 1.25, cost: 40000, recipe: [20, 20, 20, 20] },
-    'mtar_21':       { name: "Mtar-21 (Sub)",      category: "Submetralhadoras", price: { min: 150000, max: 170000 }, weight: 5.0,  cost: 50000, recipe: [20, 20, 20, 20] },
-    'ak_74':         { name: "Ak-74 (Fuzil)",      category: "Fuzis",          price: { min: 240000, max: 260000 }, weight: 8.0,  cost: 35000, recipe: [25, 25, 25, 25] },
-    'g36c':          { name: "G36C (Fuzil)",       category: "Fuzis",          price: { min: 260000, max: 280000 }, weight: 8.0,  cost: 30000, recipe: [25, 25, 25, 25] },
-    'ak_compact':    { name: "Ak Compact (Fuzil)", category: "Fuzis",          price: { min: 190000, max: 210000 }, weight: 2.25, cost: 40000, recipe: [25, 25, 25, 25] },
-    'mossberg':      { name: "Mossberg 590",       category: "Escopetas",      price: { min: 260000, max: 280000 }, weight: 6.0,  cost: 35000, recipe: [25, 25, 25, 25] }
+    'pendrive_1': { name: "Pendrive 1",     category: "Pendrives", price: { min: 2500, max: 2500 }, weight: 0.5,  cost: 0, recipe: [12, 8, 0, 0] },
+    'pendrive_2': { name: "Pendrive 2",     category: "Pendrives", price: { min: 5000, max: 5000 }, weight: 0.5,  cost: 0, recipe: [14, 10, 0, 0] },
+    'pendrive_3': { name: "Pendrive 3",     category: "Pendrives", price: { min: 8500, max: 8500 }, weight: 0.5,  cost: 0, recipe: [19, 15, 0, 0] },
+    'pendrive_4': { name: "Pendrive 4",     category: "Pendrives", price: { min: 11000, max: 11000 }, weight: 0.5,  cost: 0, recipe: [27, 23, 0, 0] },
+    'pendrive_5': { name: "Pendrive 5",     category: "Pendrives", price: { min: 25000, max: 25000 }, weight: 0.5,  cost: 0, recipe: [40, 30, 0, 0] },
+    'algema':     { name: "Algema",         category: "Utilidades", price: { min: 3500, max: 3500 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
+    'alcool':     { name: "Álcool em Gel",  category: "Utilidades", price: { min: 1850, max: 1850 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
 };
 
 /**
@@ -155,7 +153,7 @@ const app = {
 
     renderCatalog() {
         const grouped = {};
-        const categories = ["Pistolas", "Submetralhadoras", "Fuzis", "Escopetas", "Outros"];
+        const categories = ["Pendrives", "Utilidades"];
         
         Object.entries(CATALOG).forEach(([id, item]) => {
             const cat = item.category || "Outros";
@@ -671,6 +669,7 @@ const app = {
         const valorLiquido = valorOriginal - taxaTotalValor;
         const taxaMaquinaValor = valorOriginal * (taxaMaquina / 100);
         const restoTaxa = taxaTotalValor - taxaMaquinaValor;
+        const alvejante = Math.ceil(valorOriginal / 10000);
 
         const lucroFaccao = restoTaxa * 0.50;
         const lucroResponsavel = restoTaxa * 0.50;
@@ -681,6 +680,9 @@ const app = {
         document.getElementById('lav-res-faccao').textContent = `R$ ${lucroFaccao.toLocaleString('pt-BR')}`;
         document.getElementById('lav-res-responsavel').textContent = `R$ ${lucroResponsavel.toLocaleString('pt-BR')}`;
         document.getElementById('lav-res-liquido').textContent = `R$ ${valorLiquido.toLocaleString('pt-BR')}`;
+        if (document.getElementById('lav-res-alvejante')) {
+            document.getElementById('lav-res-alvejante').textContent = alvejante;
+        }
 
         resultadoBox.classList.remove('hidden');
     },
@@ -705,6 +707,7 @@ const app = {
         const restoTaxa = taxaTotalValor - taxaMaquinaValor;
         const lucroFaccao = restoTaxa * 0.50;
         const lucroResponsavel = restoTaxa * 0.50;
+        const alvejante = Math.ceil(valorOriginal / 10000);
         const dataFormatada = this.formatDate(dataInput);
 
         const embedLavagem = {
@@ -717,7 +720,8 @@ const app = {
                     { name: "🏛️ Facção", value: faccao, inline: true },
                     { name: "💰 Valor Sujo", value: `R$ ${valorOriginal.toLocaleString('pt-BR')}`, inline: true },
                     { name: "📈 Taxa Lavagem", value: `${taxaLavagem}%`, inline: true },
-                    { name: "⚙️ Taxa Máquina (30%)", value: `R$ ${taxaMaquinaValor.toLocaleString('pt-BR')}`, inline: true },
+                    { name: "⚙️ Taxa Máquina (10%)", value: `R$ ${taxaMaquinaValor.toLocaleString('pt-BR')}`, inline: true },
+                    { name: "🧪 Alvejante", value: `${alvejante} unidades`, inline: true },
                     { name: "🔥 Lucro Facção (50%)", value: `R$ ${lucroFaccao.toLocaleString('pt-BR')}`, inline: true },
                     { name: "👤 Lucro Responsável (50%)", value: `R$ ${lucroResponsavel.toLocaleString('pt-BR')}`, inline: true },
                     { name: "✨ Valor Lavado (Repassar)", value: `R$ ${valorLiquido.toLocaleString('pt-BR')}`, inline: false }
