@@ -1,27 +1,5 @@
 /**
  * =============================================================================
- * CONFIGURAÇÃO E INICIALIZAÇÃO DO FIREBASE
- * =============================================================================
- */
-const firebaseConfig = {
-    apiKey: "AIzaSyBmfbbuI02_UFirRXRGSmo0fU9ZekQ2Egw",
-    authDomain: "trojan-stats.firebaseapp.com",
-    projectId: "trojan-stats",
-    storageBucket: "trojan-stats.firebasestorage.app",
-    messagingSenderId: "826944316857",
-    appId: "1:826944316857:web:143f3519b5b70134fb4268"
-};
-
-try {
-    firebase.initializeApp(firebaseConfig);
-    var db = firebase.firestore();
-    console.log("✅ Firebase conectado com sucesso.");
-} catch (error) {
-    console.error("❌ Erro ao conectar no Firebase:", error);
-}
-
-/**
- * =============================================================================
  * CONSTANTES GLOBAIS E DADOS
  * =============================================================================
  */
@@ -476,15 +454,7 @@ const app = {
             custoProducao: custoTotal
         };
 
-        try {
-            await db.collection("vendas_trojan").add(vendaData);
-            this.showToast("Venda salva!");
-            this.clearCart();
-            if (this.state.isAdmin) this.loadDashboard();
-        } catch (e) {
-            console.error(e);
-            this.showToast("Erro ao salvar no banco", "error");
-        }
+        this.clearCart();
 
         // --- LAYOUT DO DISCORD ---
         const itensFormatados = vendaData.itens.map(i => `• ${i.name} — ${i.qtd}x — R$ ${i.total.toLocaleString('pt-BR')}`).join('\n');
@@ -526,51 +496,9 @@ const app = {
         }
     }, 
 
-    async loadDashboard() {
+    loadDashboard() {
         if (!this.dom['stat-total-vendas']) return;
-        this.dom['stats-top-itens'].innerHTML = '<p class="text-muted italic">Carregando...</p>';
-
-        try {
-            const dataInicioStr = this.dom['filtro-inicio'].value;
-            const dataFimStr = this.dom['filtro-fim'].value;
-            const dataInicio = new Date(`${dataInicioStr}T00:00:00`);
-            const dataFim = new Date(`${dataFimStr}T23:59:59`);
-
-            const snapshot = await db.collection("vendas_trojan")
-                .where("data", ">=", dataInicio)
-                .where("data", "<=", dataFim)
-                .get();
-
-            let totalVendas = 0, faturamentoFaccao = 0, totalBruto = 0, totalItens = 0, itemCounts = {};
-
-            snapshot.forEach((doc) => {
-                const data = doc.data();
-                totalVendas++;
-                faturamentoFaccao += (data.lucroFaccao || 0);
-                totalBruto += (data.total || 0);
-                
-                if (data.itens) {
-                    data.itens.forEach(item => {
-                        const itemName = item.name || item.nome; 
-                        totalItens += item.qtd;
-                        itemCounts[itemName] = (itemCounts[itemName] || 0) + item.qtd;
-                    });
-                }
-            });
-
-            this.dom['stat-total-vendas'].innerText = totalVendas;
-            this.dom['stat-faturamento'].innerText = `R$ ${faturamentoFaccao.toLocaleString('pt-BR')}`;
-            this.dom['stat-total-itens'].innerText = totalItens;
-            if (this.dom['stat-total-bruto']) this.dom['stat-total-bruto'].innerText = `R$ ${totalBruto.toLocaleString('pt-BR')}`;
-
-            const sortedItems = Object.entries(itemCounts).sort(([, a], [, b]) => b - a).slice(0, 5);
-            let topHtml = sortedItems.length ? sortedItems.map(([n, q]) => `<div class="top-item"><span>${n}</span><span class="top-item-qtd">${q}</span></div>`).join('') : '<p class="text-muted italic text-center">Nenhuma venda encontrada no período.</p>';
-            this.dom['stats-top-itens'].innerHTML = topHtml;
-            
-        } catch (e) {
-            console.error("Erro Dashboard:", e);
-            this.dom['stats-top-itens'].innerHTML = '<p class="text-muted italic" style="color:#ef4444;">Erro de permissão no Firebase. Atualize as regras do banco de dados.</p>';
-        }
+        this.dom['stats-top-itens'].innerHTML = '<p class="text-muted italic text-center">Dashboard desabilitado — sem banco de dados.</p>';
     },
 
     getTutorialSteps() {
