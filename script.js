@@ -23,9 +23,9 @@ const CATALOG = {
     'pendrive_4': { name: "Pendrive 4",     category: "Pendrives", price: { min: 12000, max: 14000 }, weight: 0.5,  cost: 0, recipe: [27, 23, 0, 0] },
     'pendrive_5': { name: "Pendrive 5",     category: "Pendrives", price: { min: 22000, max: 27000 }, weight: 0.5,  cost: 0, recipe: [40, 30, 0, 0] },
     'algema':     { name: "Algema",         category: "Utilidades", price: { min: 4500, max: 6500 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
-    'alcool':     { name: "Álcool em Gel",  category: "Utilidades", price: { min: 2850, max: 3200 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
-    'cannabis und':     { name: "cannabis und", category: "Droga", price: { min: 350, max: 1450 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
-    'cannabis pacote':     { name: "cannabis pacote",  category: "Droga", price: { min: 8500, max: 10900 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
+    'alcool':     { name: "Álcool em Gel",  category: "Utilidades", price: { min: 2850, max: 3200 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] },
+    'cannabis_und':     { name: "cannabis und", category: "Droga", price: { min: 350, max: 1450 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
+    'cannabis_pacote':     { name: "cannabis pacote",  category: "Droga", price: { min: 8500, max: 10900 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
 };
 
 /**
@@ -133,7 +133,7 @@ const app = {
 
     renderCatalog() {
         const grouped = {};
-        const categories = ["Pendrives", "Utilidades"];
+        const categories = ["Pendrives", "Utilidades", "Droga"];
         
         Object.entries(CATALOG).forEach(([id, item]) => {
             const cat = item.category || "Outros";
