@@ -17,13 +17,15 @@ const CONFIG = {
 };
 
 const CATALOG = {
-    'pendrive_1': { name: "Pendrive 1",     category: "Pendrives", price: { min: 2500, max: 2500 }, weight: 0.5,  cost: 0, recipe: [12, 8, 0, 0] },
-    'pendrive_2': { name: "Pendrive 2",     category: "Pendrives", price: { min: 5000, max: 5000 }, weight: 0.5,  cost: 0, recipe: [14, 10, 0, 0] },
-    'pendrive_3': { name: "Pendrive 3",     category: "Pendrives", price: { min: 8500, max: 8500 }, weight: 0.5,  cost: 0, recipe: [19, 15, 0, 0] },
-    'pendrive_4': { name: "Pendrive 4",     category: "Pendrives", price: { min: 11000, max: 11000 }, weight: 0.5,  cost: 0, recipe: [27, 23, 0, 0] },
-    'pendrive_5': { name: "Pendrive 5",     category: "Pendrives", price: { min: 25000, max: 25000 }, weight: 0.5,  cost: 0, recipe: [40, 30, 0, 0] },
-    'algema':     { name: "Algema",         category: "Utilidades", price: { min: 3500, max: 3500 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
-    'alcool':     { name: "Álcool em Gel",  category: "Utilidades", price: { min: 1850, max: 1850 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
+    'pendrive_1': { name: "Pendrive 1",     category: "Pendrives", price: { min: 3500, max: 5100 }, weight: 0.5,  cost: 0, recipe: [12, 8, 0, 0] },
+    'pendrive_2': { name: "Pendrive 2",     category: "Pendrives", price: { min: 6000, max: 9000 }, weight: 0.5,  cost: 0, recipe: [14, 10, 0, 0] },
+    'pendrive_3': { name: "Pendrive 3",     category: "Pendrives", price: { min: 9500, max: 12500 }, weight: 0.5,  cost: 0, recipe: [19, 15, 0, 0] },
+    'pendrive_4': { name: "Pendrive 4",     category: "Pendrives", price: { min: 12000, max: 14000 }, weight: 0.5,  cost: 0, recipe: [27, 23, 0, 0] },
+    'pendrive_5': { name: "Pendrive 5",     category: "Pendrives", price: { min: 22000, max: 27000 }, weight: 0.5,  cost: 0, recipe: [40, 30, 0, 0] },
+    'algema':     { name: "Algema",         category: "Utilidades", price: { min: 4500, max: 6500 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
+    'alcool':     { name: "Álcool em Gel",  category: "Utilidades", price: { min: 2850, max: 3200 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
+    'cannabis und':     { name: "cannabis und", category: "Droga", price: { min: 350, max: 1450 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
+    'cannabis pacote':     { name: "cannabis pacote",  category: "Droga", price: { min: 8500, max: 10900 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
 };
 
 /**
