@@ -25,7 +25,7 @@ const CATALOG = {
     'algema':     { name: "Algema",         category: "Utilidades", price: { min: 5500, max: 7500 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
     'alcool':     { name: "Álcool em Gel",  category: "Utilidades", price: { min: 3500, max: 4500 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] },
     'cannabis_und':     { name: "cannabis und", category: "Droga", price: { min: 350, max: 1450 },  weight: 1.0,  cost: 0, recipe: [0, 0, 0, 0] },
-    'Caixa_attachs':     { name: "Caixa de Attachs",  category: "Utilidades", price: { min: 2600, max: 4000 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
+    'caixa_attachs':     { name: "Caixa de Attachs",  category: "Utilidades", price: { min: 2600, max: 4000 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
     'cannabis_pacote':     { name: "cannabis pacote",  category: "Droga", price: { min: 8500, max: 10900 },  weight: 0.3,  cost: 0, recipe: [0, 0, 0, 0] }
 };
 
